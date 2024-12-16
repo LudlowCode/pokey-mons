@@ -1,0 +1,1 @@
+Practice middle-tier API for querying pokemons that I've stored in my data tier (Atlas No-SQL Mongo, at the moment) using the guide here: https://www.mongodb.com/docs/drivers/node/current/quick-start/connect-to-mongodb/ 
