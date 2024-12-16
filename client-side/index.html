@@ -1,0 +1,11 @@
+<SCRIPT>const xhr = new XMLHttpRequest();
+xhr.open("GET", "https://symmetrical-goggles-rvx6v56qq7jcw766-3000.app.github.dev/");
+xhr.send();
+xhr.responseType = "json";
+xhr.onload = () => {
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    console.log(xhr.response);
+  } else {
+    console.log(`Error: ${xhr.status}`);
+  }
+};</SCRIPT>

@@ -1,5 +1,5 @@
 const { MongoClient } = require("mongodb");
-
+const cors = require("cors");
 const app = require("express")();
 
 // Replace the uri string with your connection string.
@@ -10,6 +10,8 @@ const pokes = database.collection('pokes');
 
 const PORT = 3000;
 
+
+app.use(cors()); //removes cors issues clent-side
 
 // Define a simple route for HTTP GET requests
 app.get('/', async (req, res) => {
