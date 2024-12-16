@@ -7,11 +7,11 @@ const client = new MongoClient(uri);
 async function run() {
   try {
     const database = client.db('pokemon');
-    const movies = database.collection('pokes');
+    const pokes = database.collection('pokes');
     // Query for a pokemon number 1
     const query = { id: '001' };
-    const movie = await movies.findOne(query);
-    console.log(movie);
+    const poke = await pokes.findOne(query);
+    console.log(poke);
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
