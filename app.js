@@ -9,9 +9,7 @@ const database = client.db('pokemon');
 const pokes = database.collection('pokes');
 
 const PORT = 3000;
-
-
-app.use(cors()); //removes cors issues clent-side
+app.use(cors()); //CORS allows resource sharing between client- and server-side domains
 
 // Define a simple route for HTTP GET requests
 app.get('/', async (req, res) => {
