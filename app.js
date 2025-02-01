@@ -11,12 +11,21 @@ const uri = "mongodb+srv://LudlowReader:I0op4qBHMCGz1bMt@cluster0.6m5on.mongodb.
 const client = new MongoClient(uri);
 // Initialize Express app
 const app = express();
-app.use(cors())
+app.use(cors({origin: '*'}));
+app.use(express.static(path.join(__dirname, 'public')));
+
 const database = client.db('pokemon');
 const pokes = database.collection('pokes');
 
-// Define a simple route for HTTP GET requests
 app.get('/', async (req, res) => {
+  try {
+    res.sendFile(__dirname + '/views/index.html');
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching static page', error: err });
+  }
+});
+// Define a simple route for HTTP GET requests
+app.get('/pokes/', async (req, res) => {
   try {
     res.set('Access-Control-Allow-Origin', '*');
     let results = await pokes.find({})
