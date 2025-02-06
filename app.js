@@ -19,6 +19,7 @@ const pokes = database.collection('pokes');
 
 app.get('/', async (req, res) => {
   try {
+    res.set('Access-Control-Allow-Origin', '*');
     res.sendFile(__dirname + '/views/index.html');
   } catch (err) {
     res.status(500).json({ message: 'Error fetching static page', error: err });
